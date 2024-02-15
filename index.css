@@ -41,7 +41,7 @@ header {
 /* Container styles */
 .container {
     max-width: 800px;
-    margin: 20px auto;
+    margin: 20px auto; /* Center the container */
     padding: 0 20px;
 }
 
@@ -53,13 +53,13 @@ h1, h2 {
 .team-member {
     display: flex;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 40px; /* Increase space between team members */
 }
 
     .team-member img {
-        width: 100px; /* Adjust according to your team member image size */
+        width: 120px; /* Adjust image size */
         border-radius: 50%;
-        margin-right: 20px;
+        margin-right: 40px; /* Increase space between images */
     }
 
 .team-member-description h3 {
@@ -68,8 +68,8 @@ h1, h2 {
 
 /* Alternate team member images to the left and right */
 .team-member:nth-child(even) img {
-    margin-right: 0;
-    margin-left: 20px;
+    margin-right: 80px; /* Increase space between images */
+    margin-left: 0;
 }
 
 /* Contact section styles */
