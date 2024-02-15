@@ -68,7 +68,7 @@ h1, h2 {
 
 /* Alternate team member images to the left and right */
 .team-member:nth-child(even) img {
-    margin-right: 80px; /* Increase space between images */
+    margin-right: 400px; /* Increase space between images */
     margin-left: 0;
 }
 
