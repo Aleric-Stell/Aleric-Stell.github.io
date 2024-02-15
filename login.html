@@ -12,23 +12,39 @@
     <link rel="stylesheet" href="loginStyle.css">
 </head>
 <body>
-<div class="background">
-    <div class="shape"></div>
-    <div class="shape"></div>
-</div>
-<form>
-    <h3>Login Here</h3>
-
-    <label for="username">Username</label>
-    <input type="text" placeholder="Email or Phone" id="username">
-
-    <label for="password">Password</label>
-    <input type="password" placeholder="Password" id="password">
-
-    <button>Log In</button>
-    <div class="social">
-        <div class="go"> <a href="forgotPword.html">Forgot Login?</a></div>
+    <header>
+        <div class="logo">
+            <!-- Make the logo clickable and link it to the homepage -->
+            <a href="index.html">
+                <!-- Replace this with your company logo or a placeholder -->
+                <img src="company_logo.png" alt="Company Logo">
+            </a>
+        </div>
+        <nav class="navigation">
+            <a href="index.html">Home</a>
+            <a href="products.html">Products</a>
+            <a href="services.html">Services</a>
+            <a href="about.html">About Us</a>
+        </nav>
+        <button class="login-button" onclick="window.location.href='login.html'">Login</button>
+    </header>
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
     </div>
-</form>
+    <form>
+        <h3>Login Here</h3>
+
+        <label for="username">Username</label>
+        <input type="text" placeholder="Email or Phone" id="username">
+
+        <label for="password">Password</label>
+        <input type="password" placeholder="Password" id="password">
+
+        <button>Log In</button>
+        <div class="social">
+            <div class="go"> <a href="forgotPword.html">Forgot Login?</a></div>
+        </div>
+    </form>
 </body>
 </html>
