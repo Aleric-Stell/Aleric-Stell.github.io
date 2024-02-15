@@ -18,7 +18,7 @@ header {
     background-color: #333;
     color: #fff;
     padding: 20px;
-    text-align: center;
+    text-align: center; /* Center the header content */
 }
 
 /* Navigation styles */
@@ -41,7 +41,7 @@ header {
 /* Container styles */
 .container {
     max-width: 800px;
-    margin: 20px auto; /* Center the container */
+    margin: 20px auto; /* Center the container horizontally */
     padding: 0 20px;
 }
 
@@ -67,10 +67,14 @@ h1, h2 {
 }
 
 /* Alternate team member images to the left and right */
-.team-member:nth-child(even) img {
-    margin-right: 200px; /* Increase space between images */
-    margin-left: 0;
+.team-member:nth-child(even) {
+    flex-direction: row-reverse; /* Reverse the order of flex items for even team members */
 }
+
+    .team-member:nth-child(even) img {
+        margin-right: 0; /* Remove margin on the right side */
+        margin-left: 20px; /* Add margin on the left side */
+    }
 
 /* Contact section styles */
 .contact-info {
