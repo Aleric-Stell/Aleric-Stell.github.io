@@ -28,7 +28,7 @@ header {
     padding: 20px;
     text-align: center; /* Center the header content */
 }
-.button {
+.navigation .button {
     max-width: 100px;
 }
 body {
