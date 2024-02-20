@@ -11,6 +11,7 @@ body {
     background-color: #f0f0f0;
     color: #333;
     line-height: 1.6;
+    text-align: center;
 }
 
 /* Header styles */
@@ -36,6 +37,10 @@ header {
 
 .logo img {
     max-width: 100px; /* Adjust according to your logo size */
+}
+
+.button {
+    max-width: 100px;
 }
 
 /* Container styles */
