@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Loading Your Results…</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: sans-serif;
+    }
+    .spinner {
+      margin: 20px;
+      width: 50px;
+      height: 50px;
+      border: 5px solid #ddd;
+      border-top: 5px solid #4CAF50;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <h2>Fetching your iTunes results…</h2>
+  <div class="spinner"></div>
+  <p>You’ll be redirected shortly.</p>
+
+  <script>
+    // Change this to your Cognito Forms URL with ?entry=...
+    const targetUrl = "https://www.cognitoforms.com/CognitoSupportAleric/ITunesSearch";
+
+    // Delay in milliseconds (e.g., 8000 = 8 seconds)
+    const delay = 8000;
+
+    setTimeout(() => {
+      window.location.href = targetUrl;
+    }, delay);
+  </script>
+</body>
+</html>
