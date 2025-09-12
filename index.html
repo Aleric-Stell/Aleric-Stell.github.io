@@ -1,48 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Loading Your Results…</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Loading your results…</title>
   <style>
-    body {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      font-family: sans-serif;
-    }
-    .spinner {
-      margin: 20px;
-      width: 50px;
-      height: 50px;
-      border: 5px solid #ddd;
-      border-top: 5px solid #4CAF50;
-      border-radius: 50%;
-      animation: spin 1s linear infinite;
-    }
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; display:grid; place-items:center; min-height:100vh; margin:0; }
+    .card { max-width:560px; width:100%; padding:1.25rem; border:1px solid #e5e7eb; border-radius:14px; box-shadow:0 8px 30px rgba(0,0,0,.06); }
+    h1{margin:.25rem 0 .5rem; font-size:1.1rem}
+    p{margin:.5rem 0; color:#374151}
+    button{margin-top:.75rem; padding:.55rem .9rem; border-radius:10px; border:1px solid #d1d5db; background:#fff; cursor:pointer}
+    .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; font-size:.9rem}
   </style>
 </head>
 <body>
-  <h2>Fetching your iTunes results…</h2>
-  <div class="spinner"></div>
-  <p>You’ll be redirected shortly.</p>
-
+  <div class="card">
+    <h1>Preparing your results…</h1>
+    <p class="mono" id="debug"></p>
+    <button id="go">Open now</button>
+  </div>
   <script>
-    // Change this to your Cognito Forms URL with ?entry=...
-    const targetUrl = "https://www.cognitoforms.com/CognitoSupportAleric/ITunesResults";
+    const qs   = new URLSearchParams(location.search);
+    const cid  = qs.get("cid");                 // Entry.Number from Search
+    const wait = parseInt(qs.get("wait") || "4000", 10);
 
-    // Delay in milliseconds (e.g., 8000 = 8 seconds)
-    const delay = 11000;
+    // Your public Results form URL:
+    const url = new URL("https://www.cognitoforms.com/YourOrg/YourResultsForm");
 
-    setTimeout(() => {
-      window.location.href = targetUrl;
-    }, delay);
+    // Prefill the CorrelationId field on the Results form
+    url.searchParams.set("Entry.CorrelationId", cid);
+
+    // (Optional) prefill other fields if desired:
+    // url.searchParams.set("Entry.Status", "Ready");
+    // url.searchParams.set("Entry.SearchTerm", qs.get("q") || "");
+
+    const target = url.toString();
+    document.getElementById("debug").textContent = target;
+
+    const openNow = () => location.href = target;
+    document.getElementById("go").addEventListener("click", openNow);
+    setTimeout(openNow, isNaN(wait) ? 4000 : wait);
   </script>
 </body>
 </html>
+
