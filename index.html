@@ -17,17 +17,17 @@
   <div class="card">
     <h1>Preparing your results…</h1>
     <p class="mono" id="debug"></p>
-    <button id="go">Open now</button>
   </div>
   <script>
     const qs   = new URLSearchParams(location.search);
     const cid  = qs.get("cid");                 // Entry.Number from Search
-    const wait = parseInt(qs.get("wait") || "11000", 10);
+    const wait = parseInt(qs.get("wait") || "30000", 10);
 
     // Your public Results form URL:
     const url = new URL("https://www.cognitoforms.com/CognitoSupportAleric/ITunesResults");
 
     // Prefill the CorrelationId field on the Results form
+    url.searchParams.set("Entry.CorrelationId", cid);
     url.searchParams.set("Entry.CorrelationId", cid);
 
     // (Optional) prefill other fields if desired:
@@ -38,7 +38,6 @@
     document.getElementById("debug").textContent = target;
 
     const openNow = () => location.href = target;
-    document.getElementById("go").addEventListener("click", openNow);
     setTimeout(openNow, isNaN(wait) ? 11000 : wait);
   </script>
 </body>
